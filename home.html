@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Navigator</title>
+
+  <link rel="stylesheet" href="css/home.css" />
+  <script defer src="js/viewer.js"></script>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    crossorigin="anonymous" />
+</head>
+
+<body>
+
+  <!-- 🔥 Loader -->
+  <div id="loader">
+    <div class="loader-content">
+      <img src="img/logo.jpg" alt="IIITD Logo">
+      <h2>IIITD Campus Navigator</h2>
+      <div class="loading-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔥 Header Section -->
+  <header>
+    <div class="logo">
+      <img src="img/logo.jpg" alt="IIITD Logo">
+    </div>
+    <h1>Campus Navigator</h1>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search location...">
+      <button id="searchButton">🔍</button>
+    </div>
+    <div class="top-icons">
+      <a href="streetview/index.html" title="Street View">
+        <i class="fas fa-street-view"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- 🔥 Carousel Section -->
+  <div class="carousel">
+    <button class="nav left" onclick="changeSlide(-1)">&#10094;</button>
+
+    <div class="slides">
+
+      <!-- Slide 1 -->
+      <div class="slide" style="background-image: url('img/lhc.jpg');">
+        <div class="marker" data-name="LHC">
+          <img src="img/marker.png" alt="marker icon" />
+          <span class="label">LHC</span>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" style="background-image: url('img/mess and canteen.jpg');">
+        <div class="marker" data-name="Mess & Canteen">
+          <img src="img/marker.png" alt="marker icon" />
+          <span class="label">Mess & Canteen</span>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" style="background-image: url('img/rnd.jpg');">
+        <div class="marker" data-name="R&D Block">
+          <img src="img/marker.png" alt="marker icon" />
+          <span class="label">R&D Block</span>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide" style="background-image: url('img/sportsblock.jpg');">
+        <div class="marker" data-name="Sports Block">
+          <img src="img/marker.png" alt="marker icon" />
+          <span class="label">Sports Block</span>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide" style="background-image: url('img/old_academic.jpeg');">
+        <div class="marker" data-name="Old Academic">
+          <img src="img/marker.png" alt="marker icon" />
+          <span class="label">Old Academic</span>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="nav right" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  <!-- 🔥 Info Box Popup -->
+  <div id="info-box" class="info-box hidden">
+    <button class="close-btn">&times;</button>
+    <img id="info-img" src="" alt="Building Image">
+    <h2 id="info-title">Title</h2>
+    <p id="info-description">Description</p>
+    <button id="navigate-btn" class="navigate-btn">Navigate</button>
+  </div>
+
+  <!-- 🔥 Loader Script (Works 100%) -->
+  <script>
+  const MIN_LOADER_TIME = 3000; // Loader will stay for at least 3 seconds
+  const loaderStartTime = Date.now();
+
+  window.addEventListener('load', () => {
+    const loadEndTime = Date.now();
+    const elapsed = loadEndTime - loaderStartTime;
+    const remaining = Math.max(0, MIN_LOADER_TIME - elapsed);
+
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+    }, remaining);
+  });
+</script>
+
+</body>
+</html>
