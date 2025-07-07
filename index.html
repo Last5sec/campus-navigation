@@ -32,11 +32,14 @@
     <div class="logo">
       <img src="img/logo.jpg" alt="IIITD Logo">
     </div>
-    <h1>Campus Navigator</h1>
+
+    <h1 class="site-title">Campus Navigator</h1>
+
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Search location...">
-      <button id="searchButton">🔍</button>
+      <button id="searchButton"><i class="fas fa-search"></i></button>
     </div>
+
     <div class="top-icons">
       <a href="streetview/index.html" title="Street View">
         <i class="fas fa-street-view"></i>
@@ -49,7 +52,6 @@
     <button class="nav left" onclick="changeSlide(-1)">&#10094;</button>
 
     <div class="slides">
-
       <!-- Slide 1 -->
       <div class="slide" style="background-image: url('img/lhc.jpg');">
         <div class="marker" data-name="LHC">
@@ -89,7 +91,6 @@
           <span class="label">Old Academic</span>
         </div>
       </div>
-
     </div>
 
     <button class="nav right" onclick="changeSlide(1)">&#10095;</button>
@@ -104,21 +105,21 @@
     <button id="navigate-btn" class="navigate-btn">Navigate</button>
   </div>
 
-  <!-- 🔥 Loader Script (Works 100%) -->
+  <!-- 🔥 Loader Script -->
   <script>
-  const MIN_LOADER_TIME = 3000; // Loader will stay for at least 3 seconds
-  const loaderStartTime = Date.now();
+    const MIN_LOADER_TIME = 3000;
+    const loaderStartTime = Date.now();
 
-  window.addEventListener('load', () => {
-    const loadEndTime = Date.now();
-    const elapsed = loadEndTime - loaderStartTime;
-    const remaining = Math.max(0, MIN_LOADER_TIME - elapsed);
+    window.addEventListener('load', () => {
+      const loadEndTime = Date.now();
+      const elapsed = loadEndTime - loaderStartTime;
+      const remaining = Math.max(0, MIN_LOADER_TIME - elapsed);
 
-    setTimeout(() => {
-      document.body.classList.add('loaded');
-    }, remaining);
-  });
-</script>
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, remaining);
+    });
+  </script>
 
 </body>
 </html>

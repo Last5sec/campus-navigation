@@ -70,7 +70,7 @@ const infoData = [
   },
   {
     name: "Anuj Grover Sir",
-    image: "img/info box/A610.JPG",
+    image: "img/info box/A610.jpg",
     description: "A610 is a faculty office of Anuj Grover Sir"
 
   },
