@@ -34,7 +34,7 @@ const infoData = [
     description: "The Sports Block includes facilities for indoor sports, fitness training, and recreation."
   },
   {
-    name: "Old Academic",
+    name: "Old Academic Block",
     image: "img/info box/old academic.jpg",
     description: "The Old Academic Block houses early classrooms, faculty rooms, and administrative offices."
   },
