@@ -76,7 +76,7 @@ const infoData = [
   },
   {
     name: "Lecture Hall 101",
-    image: "img/info box/search box/101.jpg",
+    image: "img/info box/search box/101.JPG",
     description: "Lecture Hall 101 is a lecture hall in LHC"
   },
 
