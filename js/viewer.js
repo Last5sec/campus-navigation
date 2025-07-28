@@ -70,9 +70,14 @@ const infoData = [
   },
   {
     name: "Anuj Grover Sir",
-    image: "img/info box/A610.jpg",
+    image: "img/info box/search box/A610.jpg",
     description: "A610 is a faculty office of Anuj Grover Sir"
 
+  },
+  {
+    name: "Lecture Hall 101",
+    image: "img/info box/search box/101.jpg",
+    description: "Lecture Hall 101 is a lecture hall in LHC"
   },
 
 ];
