@@ -266,20 +266,20 @@ const infoData = [
     description: "A-206 is the Office of Khushpinder Sharma (Counselling Psychologist)"
   },
   {
-    name: "Student Affairs",
+    name: "Student Affairs Office",
     image: "img/info box/search box/A-207.jpg",
     description: "A-207 is the Office of Student Affairs"
   },
-  {
-    name: "A-208",
-    image: "img/info box/search box/A-208.jpg",
-    description: "A-208 is the Office of A-208"
-  },
-  {
-    name: "A-209",
-    image: "img/info box/search box/A-209.jpg",
-    description: "A-209 is the Office of A-209"
-  },
+  // {
+  //   name: "A208",
+  //   image: "img/info box/search box/A-208.jpg",
+  //   description: "A-208 is the Office of A-208"
+  // },
+  // {
+  //   name: "A209",
+  //   image: "img/info box/search box/A-209.jpg",
+  //   description: "A-209 is the Office of A-209"
+  // },
   {
     name: "Anupam Saronwala Sir",
     image: "img/info box/search box/A-301.jpg",
@@ -331,22 +331,22 @@ const infoData = [
     description: "A-406 is the Office of Angshu Das Sir"
   },
   {
-    name: "A-001",
+    name: "A001",
     image: "img/info box/search box/A001.jpg",
     description: "A001 is the Lecture Hall in RND"
   },
   {
-    name: "A-002",
+    name: "A002",
     image: "img/info box/search box/A002.jpg",
     description: "A002 is the Lecture Hall in RND"
   },
   {
-    name: "A-003",
+    name: "A003",
     image: "img/info box/search box/A003.jpg",
     description: "A003 is the Lecture Hall in RND"
   },
   {
-    name: "A-004",
+    name: "A004",
     image: "img/info box/search box/A004.jpg",
     description: "A004 is the Lecture Hall in RND"
   },
@@ -356,17 +356,17 @@ const infoData = [
     description: "A005 is the Audio Visual in RND"
   },
   {
-    name: "A-006",
+    name: "A006",
     image: "img/info box/search box/A006.jpg",
     description: "A006 is the Lecture Hall in RND"
   },
   {
-    name: "A-007",
+    name: "A007",
     image: "img/info box/search box/A007.jpg",
     description: "A007 is the Lecture Hall in RND"
   },
   {
-    name: "A-101",
+    name: "A101",
     image: "img/info box/search box/A101.jpg",
     description: "A101 is the Lecture Hall in RND"
   },
@@ -386,7 +386,7 @@ const infoData = [
     description: "A104 is the Video Studio in RND"
   },
   {
-    name: "A-106",
+    name: "A106",
     image: "img/info box/search box/A106.jpg",
     description: "A106 is the Lecture Hall in RND"
   },
@@ -496,7 +496,7 @@ const infoData = [
     description: "A316 is the AI/ML for Medicine and Public Health Lab in RND"
   },
   {
-    name: "A-320",
+    name: "A320",
     image: "img/info box/search box/A320.jpg",
     description: "A320 is the Meeting Room in RND"
   },
@@ -636,7 +636,7 @@ const infoData = [
     description: "A519 is the General Computing Lab in RND"
   },
   {
-    name: "A-520",
+    name: "A520",
     image: "img/info box/search box/A520.jpg",
     description: "A520 is the Meeting Room in RND"
   },
@@ -721,7 +721,7 @@ const infoData = [
     description: "A617 is the M.Tech Lab in RND"
   },
   {
-    name: "A-618",
+    name: "A618",
     image: "img/info box/search box/A618.jpg",
     description: "A618 is the Meeting Room in RND"
   },
@@ -801,27 +801,27 @@ const infoData = [
     description: "B-206 is the office of Deepali Gupta Mam in Old Academic Building"
   },
   {
-    name: "B-207",
+    name: "B207",
     image: "img/info box/search box/B-207.jpg",
     description: "B-207 is a room in Old Academic Building"
   },
   {
-    name: "B-208",
+    name: "B208",
     image: "img/info box/search box/B-208.jpg",
     description: "B-208 is a room in Old Academic Building"
   },
   {
-    name: "B-001",
+    name: "B001",
     image: "img/info box/search box/B001.jpg",
     description: "B-001 is a Meeting room in RND"
   },
   {
-    name: "B-002",
+    name: "B002",
     image: "img/info box/search box/B002.jpg",
     description: "B-002 is a Meeting room in RND"
   },
   {
-    name: "B-003",
+    name: "B003",
     image: "img/info box/search box/B003.jpg",
     description: "B-003 is a Lecture Hall in RND"
   },
@@ -831,7 +831,7 @@ const infoData = [
     description: "B-004 is a Design & Innovation Lab in RND"
   },
   {
-    name: "B-101",
+    name: "B101",
     image: "img/info box/search box/B101.jpg",
     description: "B-101 is a Lecture Hall in RND"
   },
@@ -841,7 +841,7 @@ const infoData = [
     description: "B-102 is a Faculty Lounge in RND"
   },
   {
-    name: "B-105",
+    name: "B105",
     image: "img/info box/search box/B105.jpg",
     description: "B-105 is a Lecture Hall in RND"
   },
@@ -1156,11 +1156,11 @@ const infoData = [
     image: "img/info box/search box/B518.jpg",
     description: "B-518 is the Cryptography Lab in RND"
   },
-  {
-    name: "General Computing Lab",
-    image: "img/info box/search box/B519.jpg",
-    description: "B-519 is the General Computing Lab in RND"
-  },
+  // {
+  //   name: "General Computing Lab",
+  //   image: "img/info box/search box/B519.jpg",
+  //   description: "B-519 is the General Computing Lab in RND"
+  // },
   {
     name: "Ram Krishna Ghosh Sir",
     image: "img/info box/search box/B601.jpg",
@@ -1232,52 +1232,52 @@ const infoData = [
     description: "B-616 is the Automatic Control Lab in RND"
   },
   {
-    name: "C-01",
+    name: "C01",
     image: "img/info box/search box/C01.jpg",
     description: "C-01 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-02",
+    name: "C02",
     image: "img/info box/search box/C02.jpg",
     description: "C-02 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-03",
+    name: "C03",
     image: "img/info box/search box/C03.jpg",
     description: "C-03 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-11",
+    name: "C11",
     image: "img/info box/search box/C11.jpg",
     description: "C-11 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-12",
+    name: "C12",
     image: "img/info box/search box/C12.jpg",
     description: "C-12 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-13",
+    name: "C13",
     image: "img/info box/search box/C13.jpg",
     description: "C-13 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-21",
+    name: "C21",
     image: "img/info box/search box/C21.jpg",
     description: "C-21 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-22",
+    name: "C22",
     image: "img/info box/search box/C22.jpg",
     description: "C-22 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-23",
+    name: "C23",
     image: "img/info box/search box/C23.jpg",
     description: "C-23 is the Tutorial Room in Old Academic Building"
   },
   {
-    name: "C-24",
+    name: "C24",
     image: "img/info box/search box/C24.jpg",
     description: "C-24 is the Tutorial Room in Old Academic Building"
   },
@@ -1370,7 +1370,8 @@ const infoData = [
     name: "Sanjay Roy Sir",
     image: "img/info box/search box/SANJAY ROY.jpg",
     description: "Office of Sanjay Roy Sir is in Old Academic Building"
-  }
+  },
+  
 
   
 ];
