@@ -5,17 +5,23 @@
   var data = window.APP_DATA;
   var screenfull = window.screenfull;
 
-  // ✅ Get destination from URL
   const urlParams = new URLSearchParams(window.location.search);
   const destination = urlParams.get('destination');
 
-  const filteredScenesData = (destination && PATH_MAP[destination])
-    ? data.scenes.filter(scene => PATH_MAP[destination].includes(scene.id))
-    : data.scenes;
+  let filteredScenesData;
+  let pathStepsWithYaw = null;
+  let pathSceneIds = null;
+
+  if (destination && PATH_MAP[destination]) {
+    pathStepsWithYaw = PATH_MAP[destination];
+    pathSceneIds = pathStepsWithYaw.map(step => Array.isArray(step) ? step[0] : step);
+    filteredScenesData = data.scenes.filter(scene => pathSceneIds.includes(scene.id));
+  } else {
+    filteredScenesData = data.scenes;
+  }
 
   const allowedSceneIds = filteredScenesData.map(scene => scene.id);
 
-  // DOM elements
   const panoElement = document.querySelector('#pano');
   const sceneNameElement = document.querySelector('#titleBar .sceneName');
   const sceneListElement = document.querySelector('#sceneList');
@@ -23,12 +29,10 @@
   const autorotateToggleElement = document.querySelector('#autorotateToggle');
   const fullscreenToggleElement = document.querySelector('#fullscreenToggle');
 
-  // Viewer
   const viewer = new Marzipano.Viewer(panoElement, {
     controls: { mouseViewMode: data.settings.mouseViewMode }
   });
 
-  // 🔥 Create scenes
   const scenes = filteredScenesData.map(function(sceneData) {
     const urlPrefix = "tiles";
     const source = Marzipano.ImageUrlSource.fromString(
@@ -46,19 +50,16 @@
       pinFirstLevel: true
     });
 
-    // ✅ Link hotspots with destination restriction and one-way path logic
     sceneData.linkHotspots.forEach(function(hotspot) {
       const targetAllowed = allowedSceneIds.includes(hotspot.target);
-
       if (!targetAllowed) return;
 
-      // ✅ In navigation mode: prevent going backward
-      if (destination) {
-        const currentIndex = PATH_MAP[destination].indexOf(sceneData.id);
-        const targetIndex = PATH_MAP[destination].indexOf(hotspot.target);
+      if (destination && pathSceneIds) {
+        const currentIndex = pathSceneIds.indexOf(sceneData.id);
+        const targetIndex = pathSceneIds.indexOf(hotspot.target);
 
-        if (targetIndex < currentIndex) {
-          return; // 🔥 Skip backward link
+        if (targetIndex <= currentIndex) {
+          return;
         }
       }
 
@@ -68,7 +69,6 @@
       }
     });
 
-    // Info hotspots
     sceneData.infoHotspots.forEach(function(hotspot) {
       const element = createInfoHotspotElement(hotspot);
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
@@ -81,7 +81,6 @@
     };
   });
 
-  // 🔥 Autorotate
   const autorotate = Marzipano.autorotate({
     yawSpeed: 0.08,
     targetPitch: 0,
@@ -92,7 +91,6 @@
   }
   autorotateToggleElement.addEventListener('click', toggleAutorotate);
 
-  // 🔥 Fullscreen
   if (screenfull.enabled && data.settings.fullscreenButton) {
     document.body.classList.add('fullscreen-enabled');
     fullscreenToggleElement.addEventListener('click', () => {
@@ -103,7 +101,6 @@
     });
   }
 
-  // 🔥 Scene List
   sceneListToggleElement.addEventListener('click', toggleSceneList);
 
   if (sceneListElement) {
@@ -124,7 +121,6 @@
     });
   }
 
-  // 🔥 View Controls
   const controls = viewer.controls();
   const velocity = 0.7;
   const friction = 3;
@@ -135,7 +131,6 @@
   controls.registerMethod('inElement', new Marzipano.ElementPressControlMethod(document.querySelector('#viewIn'), 'zoom', -velocity, friction), true);
   controls.registerMethod('outElement', new Marzipano.ElementPressControlMethod(document.querySelector('#viewOut'), 'zoom', velocity, friction), true);
 
-  // 🔥 Scene Switching
   function switchScene(scene, targetYaw) {
     stopAutorotate();
     const viewParams = { ...scene.data.initialViewParameters };
@@ -186,7 +181,6 @@
     }
   }
 
-  // 🔥 Hotspot Creators with Defensive Checks
   function createLinkHotspotElement(hotspot) {
     const targetSceneData = findSceneDataById(hotspot.target);
     if (!targetSceneData) {
@@ -211,12 +205,19 @@
     tooltip.classList.add('hotspot-tooltip', 'link-hotspot-tooltip');
     tooltip.innerHTML = targetSceneData.name;
 
-    // wrapper.appendChild(tooltip);
-
     wrapper.addEventListener('click', () => {
       const targetScene = findSceneById(hotspot.target);
+      let targetYaw = hotspot.targetYaw;
+
+      if (destination && !targetYaw && pathStepsWithYaw) {
+        const step = pathStepsWithYaw.find(s => Array.isArray(s) && s[0] === hotspot.target);
+        if (step && typeof step[1] === 'number') {
+          targetYaw = step[1];
+        }
+      }
+
       if (targetScene) {
-        switchScene(targetScene, hotspot.targetYaw);
+        switchScene(targetScene, targetYaw);
       }
     });
 
@@ -298,7 +299,6 @@
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  // 🔥 Start first scene
   switchScene(scenes[0]);
 
 })();

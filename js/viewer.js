@@ -1454,9 +1454,15 @@ function startNavigation(destination) {
     return;
   }
   isInNavigation = true;
-  currentPath = path;
+    currentPath = path.map(step => {
+    if (Array.isArray(step)) {
+      return step[0]; // Just use the sceneId part for now
+    }
+    return step;
+  });
   pathIndex = 0;
-  currentIndex = path[0];
+  currentIndex = currentPath[0];
+
   updateSlide();
   backToStreetBtn.classList.remove('hidden');
 }
