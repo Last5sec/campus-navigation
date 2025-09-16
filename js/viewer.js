@@ -1419,6 +1419,23 @@ function showInfoBoxByName(name) {
   infoBox.classList.remove('hidden');
 }
 
+// ...existing code...
+
+// === QR Code: Show info if ?place= is present in URL ===
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const place = getQueryParam('place');
+  if (place) {
+    showInfoBoxByName(place);
+  }
+});
+
+// ...existing code...
+
 // ❌ Close info box
 closeBtn.addEventListener('click', () => {
   infoBox.classList.add('hidden');
